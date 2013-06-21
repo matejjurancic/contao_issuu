@@ -1,0 +1,44 @@
+
+<div id="tl_buttons">
+    <a href="<?php echo $this->hrefBack; ?>" class="header_back" 
+       title="<?php echo $this->goBack; ?>" accesskey="b" 
+       onclick="Backend.getScrollOffset();"><?php echo $this->goBack; ?></a>
+</div>
+
+<h2 class="sub_headline"><?php echo $this->headline; ?></h2>
+
+<form action="<?php echo $this->request; ?>" id="tl_import_issuu"
+      class="tl_form" method="post">
+    
+    <div class="tl_formbody_edit">
+    
+        <input type="hidden" name="FORM_SUBMIT" value="tl_import_issuu" />        
+        <div class="tl_tbox">
+            <h3><?php echo $this->publications->generateLabel(); ?></h3>
+            <?php echo $this->publications->generateWithError();
+            if ($this->publications->help): ?> 
+            <p class="tl_help"><?php echo $this->publications->help; ?></p>
+            <?php endif; ?>
+            <p>
+            <?php if (isset($this->prevPage)): ?>
+                <a href="<?php echo $this->prevPage;?>"><?php echo $this->lbl_prev; ?></a>
+            <?php endif; ?>
+                <?php echo ((int) $this->page + 1); ?>
+            <?php if (isset($this->nextPage)): ?>
+                <a href="<?php echo $this->nextPage;?>"><?php echo $this->lbl_next; ?></a>
+            <?php endif; ?>
+                <br><?php echo $this->lbl_numFound; ?>: <?php echo (int) $this->numFound; ?>
+            </p>
+        </div>
+
+    </div>
+
+    <div class="tl_formbody_submit">
+        <div class="tl_submit_container">
+            <input type="submit" name="import" id="save" class="tl_submit" 
+                   alt="<?php echo $this->submit; ?>" accesskey="s" 
+                   value="<?php echo $this->submit; ?>" />
+        </div>
+    </div>
+    
+</form>

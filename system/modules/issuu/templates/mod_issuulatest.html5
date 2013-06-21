@@ -1,0 +1,32 @@
+<section class="mod_issuulatest">
+<?php if ($this->headline):?>
+    <header class="module-header">
+        <h1><?php echo $this->headline; ?></h1>
+    </header>
+<?php endif; ?>
+
+<?php foreach ($this->items as $item): ?>
+    <article class="issuu_item">
+    
+        <header class="info">
+            <h1><?php echo $item['title']; ?></h1>
+            <time datetime="<?php echo $item['datetime']; ?>">
+                <?php echo $item['date']; ?>
+            </time>
+        </header>
+        
+        <p>
+            <a href="<?php echo $item['url']; ?>" class="issuu_thumb"
+               title="<?php echo $item['title']; ?>" target="_blank">
+                <?php if (file_exists($item['thumb'])): ?>
+                <img src="<?php echo $item['thumb']; ?>"
+                     alt="<?php echo $item['title']; ?>"
+                     width="71" height="100" />
+                <?php else: ?>
+                    <?php echo $item['title']; ?>
+                <?php endif; ?>
+            </a>
+        </p>
+    </article>
+<?php endforeach; ?>
+</section>

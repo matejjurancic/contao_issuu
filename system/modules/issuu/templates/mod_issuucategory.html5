@@ -1,0 +1,19 @@
+<section class="ce_issuu<?php echo $this->class ? ' ' . $this->class : ''; ?>">
+
+    <?php if ($this->headline): ?>
+    <h2><?php echo $this->headline; ?></h2>
+    <?php endif; ?>
+    
+    <ul>
+        <?php foreach ($this->publications as $publication): ?>
+        <li>
+            <a href="<?php echo $publication['url']; ?>" target="_blank">
+                <?php echo $publication['title']; ?>
+            </a>        
+            (<a href="<?php echo $publication['url']; ?>"
+                target="_blank"><?php echo $this->lbl_view; ?></a>)
+            (<a href="<?php echo $publication['file']; ?>"><?php echo $this->lbl_download; ?></a>)
+        </li>
+        <?php endforeach; ?>
+    </ul>
+</section>
